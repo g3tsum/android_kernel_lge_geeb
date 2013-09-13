@@ -76,7 +76,7 @@ enum {
 	CPU_PRI_PERF		= 20,
 	CPU_PRI_MIGRATION	= 10,
 	/* prepare workqueues for other notifiers */
-	CPU_PRI_WORKQUEUE	= 5,
+	CPU_PRI_WORKQUEUE  = 5,
 };
 
 #define CPU_ONLINE		0x0002 /* CPU (unsigned)v is up */
@@ -116,7 +116,7 @@ enum {
 /* Need to know about CPUs going up/down? */
 #if defined(CONFIG_HOTPLUG_CPU) || !defined(MODULE)
 #define cpu_notifier(fn, pri) {					\
-	static struct notifier_block fn##_nb __cpuinitdata =	\
+	static struct notifier_block fn##_nb =	\
 		{ .notifier_call = fn, .priority = pri };	\
 	register_cpu_notifier(&fn##_nb);			\
 }
